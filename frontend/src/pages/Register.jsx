@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useEffect, useState } from "react";
 
 import { FaUser } from "react-icons/fa";
+import Spinner from "../components/Spinner";
 import { toast } from "react-toastify";
 import { useNavigate } from "react-router-dom";
 
@@ -55,6 +56,8 @@ function Register() {
       dispatch(register(userData));
     }
   };
+
+  if (isLoading) return <Spinner />;
 
   return (
     <>
