@@ -8,6 +8,7 @@ import Login from "./pages/Login";
 import NewTicket from "./pages/NewTicket";
 import PrivateRoute from "./components/PrivateRoute";
 import Register from "./pages/Register";
+import Ticket from "./pages/Ticket";
 import Tickets from "./pages/Tickets";
 import { ToastContainer } from "react-toastify";
 
@@ -26,6 +27,9 @@ function App() {
             </Route>
             <Route path="/tickets" element={<PrivateRoute />}>
               <Route path="/tickets" element={<Tickets />} />
+            </Route>
+            <Route path="/tickets/:ticketId" element={<PrivateRoute />}>
+              <Route path="/tickets/:ticketId" element={<Ticket />} />
             </Route>
           </Routes>
         </div>
