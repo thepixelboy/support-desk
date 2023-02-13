@@ -8,6 +8,7 @@ import Login from "./pages/Login";
 import NewTicket from "./pages/NewTicket";
 import PrivateRoute from "./components/PrivateRoute";
 import Register from "./pages/Register";
+import Tickets from "./pages/Tickets";
 import { ToastContainer } from "react-toastify";
 
 function App() {
@@ -22,6 +23,9 @@ function App() {
             <Route path="/register" element={<Register />} />
             <Route path="/new-ticket" element={<PrivateRoute />}>
               <Route path="/new-ticket" element={<NewTicket />} />
+            </Route>
+            <Route path="/tickets" element={<PrivateRoute />}>
+              <Route path="/tickets" element={<Tickets />} />
             </Route>
           </Routes>
         </div>
