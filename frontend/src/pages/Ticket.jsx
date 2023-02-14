@@ -1,5 +1,9 @@
 import { closeTicket, getTicket } from "../features/tickets/ticketSlice";
-import { getNotes, reset as notesReset } from "../features/notes/noteSlice";
+import {
+  createNote,
+  getNotes,
+  reset as notesReset,
+} from "../features/notes/noteSlice";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
@@ -29,7 +33,7 @@ Modal.setAppElement("#root");
 function Ticket() {
   const [modalIsOpen, setModalIsOpen] = useState(false);
   const [noteText, setNoteText] = useState("");
-  const { ticket, isLoading, isSuccess, isError, message } = useSelector(
+  const { ticket, isLoading, isError, message } = useSelector(
     (state) => state.tickets
   );
   const { notes, isLoading: notesIsLoading } = useSelector(
@@ -66,7 +70,7 @@ function Ticket() {
   // Create note submit
   const onNoteSubmit = (e) => {
     e.preventDefault();
-    console.log("Note submitted");
+    dispatch(createNote({ noteText, ticketId }));
     closeModal();
   };
 
