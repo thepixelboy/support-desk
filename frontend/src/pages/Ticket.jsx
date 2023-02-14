@@ -1,9 +1,5 @@
 import { closeTicket, getTicket } from "../features/tickets/ticketSlice";
-import {
-  createNote,
-  getNotes,
-  reset as notesReset,
-} from "../features/notes/noteSlice";
+import { createNote, getNotes } from "../features/notes/noteSlice";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
